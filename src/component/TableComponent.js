@@ -8,14 +8,14 @@ const TableComponent = () => {
   const [userData, setuserData] = useState([]);
 
   useEffect(() => {
-    async function getAlluserData() {
+    const getAlluserData = async () => {
       try {
         const userData = await axios.get("http://localhost:3004/user");
         setuserData(userData.data);
       } catch (error) {
         console.log("Something wrong");
       }
-    }
+    };
     getAlluserData();
   }, [userData]);
 

@@ -14,33 +14,33 @@ const Edit = () => {
   });
 
   useEffect(() => {
-    async function getStudent() {
+    const getStudent = async () => {
       try {
         const user = await axios.get(`http://localhost:3004/user/${id}`);
         setUser(user.data);
       } catch (error) {
         console.log("Something is Wrong");
       }
-    }
+    };
     getStudent();
   }, [id]);
 
-  const onTextFieldChange=(e)=> {
+  const onTextFieldChange = (e) => {
     setUser({
       ...user,
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
   async function onFormSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     try {
-     await axios.put(`http://localhost:3004/user/${id}`,user)
-     navigate("/");
+      await axios.put(`http://localhost:3004/user/${id}`, user);
+      navigate("/");
     } catch (error) {
-     console.log("Something is Wrong");
+      console.log("Something is Wrong");
     }
-   }
+  }
 
   const backbtn = () => {
     navigate("/");
@@ -78,7 +78,7 @@ const Edit = () => {
             value={user.Surname}
           />
         </Form.Group>
-        <button onClick={e => onFormSubmit(e)}>Update</button>
+        <button onClick={(e) => onFormSubmit(e)}>Update</button>
         <button onClick={backbtn}>Back</button>
       </Form>
     </>
