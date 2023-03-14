@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Button from "react-bootstrap/Button";
+
 
 const View = () => {
   const [user, setuser] = useState([]);
@@ -27,7 +29,7 @@ const View = () => {
       <h1>firstname:{user.FirstName}</h1>
       <p>lastname: {user.MiddleName}</p>
       <p>surname: {user.Surname}</p>
-      <button onClick={backbtn}>Back</button>
+      <Button onClick={backbtn}>Back</Button>
     </>
   );
 };

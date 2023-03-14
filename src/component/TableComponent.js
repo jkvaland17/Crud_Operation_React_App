@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import { NavLink } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 import axios from "axios";
 
 const TableComponent = () => {
@@ -16,7 +17,7 @@ const TableComponent = () => {
       }
     }
     getAlluserData();
-  }, []);
+  }, [userData]);
 
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:3004/user/${id}`);
@@ -48,12 +49,12 @@ const TableComponent = () => {
                   <td>{val.Surname}</td>
                   <td>
                     <NavLink to={`/view/${val.id}`}>
-                      <button>show</button>
+                      <Button>show</Button>
                     </NavLink>
                     <NavLink to={`/edit/${val.id}`}>
-                      <button>Edit</button>
+                      <Button>Edit</Button>
                     </NavLink>
-                    <button onClick={() => handleDelete(val.id)}>Del</button>
+                    <Button onClick={() => handleDelete(val.id)}>Del</Button>
                   </td>
                 </tr>
               );
