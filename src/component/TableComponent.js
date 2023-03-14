@@ -48,13 +48,15 @@ const TableComponent = () => {
                   <td>{val.MiddleName}</td>
                   <td>{val.Surname}</td>
                   <td>
-                    <NavLink to={`/view/${val.id}`}>
-                      <Button>show</Button>
-                    </NavLink>
-                    <NavLink to={`/edit/${val.id}`}>
-                      <Button>Edit</Button>
-                    </NavLink>
-                    <Button onClick={() => handleDelete(val.id)}>Del</Button>
+                    <div style={{ display: "flex", gap: "1rem" }}>
+                      <NavLink to={`/view/${val.id}`}>
+                        <Button>show</Button>
+                      </NavLink>
+                      <NavLink to={`/edit/${val.id}`}>
+                        <Button>Edit</Button>
+                      </NavLink>
+                      <Button onClick={() => handleDelete(val.id)}>Del</Button>
+                    </div>
                   </td>
                 </tr>
               );
